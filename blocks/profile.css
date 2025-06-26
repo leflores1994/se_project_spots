@@ -41,6 +41,7 @@
   font-size: 16px;
   border: none;
   background: none;
+  display: flex;
 }
 .profile__add-btn {
   padding: 18px 32px;
