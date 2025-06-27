@@ -40,21 +40,34 @@
   font-weight: 500;
   font-size: 16px;
   border: none;
-  background: none;
   display: flex;
+  color: #212121;
+  padding: 0;
+  background-color: transparent;
+  gap: 8px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.profile__edit-btn:hover {
+  opacity: 1;
 }
 .profile__add-btn {
-  padding: 18px 32px;
+  padding: 0;
   margin-left: auto;
-  margin-top: 138px;
   width: 149px;
   height: 52px;
   border: none;
   border-radius: 8px;
-  display: flex;
-  align-items: center;
+  align-self: flex-end;
   background-color: #212121;
   color: #fcf5e5;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  cursor: pointer;
+}
+.profile__add-btn:hover {
+  opacity: 0.7;
 }
 @media screen and (max-width: 627px) {
   .profile {
