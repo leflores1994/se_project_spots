@@ -7,6 +7,7 @@
   height: 190px;
   width: 190px;
   margin-right: 20px;
+  border-radius: 8px;
 }
 .profile__column {
   display: flex;
@@ -34,6 +35,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
+  opacity: 0.7;
 }
 .profile__edit-btn {
   margin-top: auto;
@@ -67,7 +69,7 @@
   cursor: pointer;
 }
 .profile__add-btn:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 @media screen and (max-width: 627px) {
   .profile {
