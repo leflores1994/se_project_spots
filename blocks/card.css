@@ -6,7 +6,7 @@
   border-radius: 8px;
 }
 .card__title {
-  margin: 0 0 36px;
+  margin: 0;
   max-width: 350px;
   font-weight: 500;
   font-size: 20px;
@@ -14,6 +14,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: #212121;
 }
 .card__content {
   margin-top: 12px;
@@ -22,7 +23,7 @@
   justify-content: space-between;
 }
 .card__like-button {
-  margin: 0 0 36px;
+  margin: 0;
   background-image: url(../images/like-icon-dark.svg);
   width: 23px;
   height: 20px;
@@ -32,6 +33,7 @@
   cursor: pointer;
 }
 .card__like-button:hover {
+  opacity: 1;
 }
 @media screen and (max-width: 627px) {
   .card__image {
