@@ -101,6 +101,7 @@
     margin: auto;
   }
   .profile__add-btn {
+    width: 100%;
     margin: auto;
   }
 }
