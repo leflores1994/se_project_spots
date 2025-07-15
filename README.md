@@ -5,6 +5,7 @@ An image sharing site.
 ## Description
 
 Project consists of HTML webpage design as well as CSS styling for presentation. Buttons were created, but not currently functional.
+Please see Link with video description attached: https://drive.google.com/file/d/1Xxre7pWS3ugSzpsqeUe5yHUvx4ZiAcX9/view?usp=sharing
 
 ## Tech Stack
 
