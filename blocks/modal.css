@@ -9,10 +9,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: 0.5s;
 }
 
 .modal_is-opened {
   visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .modal__container {
