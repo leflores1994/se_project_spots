@@ -14,8 +14,8 @@ const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostCardImageInput = newPostModal.querySelector("#card-image-input");
-const newPostProfileDescriptionInput = newPostModal.querySelector(
-  "#profile-description-input"
+const newPostCardDescriptionInput = newPostModal.querySelector(
+  "#card-description-input"
 );
 
 const profileNameEl = document.querySelector(".profile__name");
@@ -24,7 +24,7 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  editProfileModal.classList.add("modal_is-opened");
+  editProfileForm.classList.add("modal-is-opened");
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
@@ -48,7 +48,8 @@ function handleEditProfileSubmit(evt) {
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  console.log("newPostForm");
+  console.log(newPostCardImageInput.value);
+  console.log(newPostCardDescriptionInput.value);
   newPostModal.classList.remove("modal_is-opened");
 }
 
