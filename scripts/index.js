@@ -24,7 +24,7 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  editProfileForm.classList.add("modal-is-opened");
+  editProfileModal.classList.add("modal_is-opened");
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
@@ -50,7 +50,7 @@ function handleNewPostSubmit(evt) {
   evt.preventDefault();
   console.log(newPostCardImageInput.value);
   console.log(newPostCardDescriptionInput.value);
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal("modal_is-opened");
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
