@@ -50,7 +50,7 @@ function handleNewPostSubmit(evt) {
   evt.preventDefault();
   console.log(newPostCardImageInput.value);
   console.log(newPostCardDescriptionInput.value);
-  closeModal("modal_is-opened");
+  newPostModal.classList.remove("modal_is-opened");
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
