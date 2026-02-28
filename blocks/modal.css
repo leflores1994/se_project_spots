@@ -41,7 +41,7 @@
   width: 40px;
   height: 40px;
   border: none;
-  opacity: 40%;
+  opacity: 0.4;
   background: none;
   font-size: 20px;
   margin-top: -2px;
@@ -151,10 +151,10 @@
   max-height: fit-content;
   color: white;
   border-radius: 8px;
-  font: poppins;
-  font-style: medium;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-weight: 500;
   font-size: 20px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   background-color: #212121;
 }
 
