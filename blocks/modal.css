@@ -147,8 +147,8 @@
 
 .modal__caption {
   padding: 4px 8px;
-  max-width: 214px;
-  max-height: 32px;
+  max-width: fit-content;
+  max-height: fit-content;
   color: white;
   border-radius: 8px;
   font: poppins;
