@@ -122,6 +122,21 @@ newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+});
+
+function handleOverlayClick(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+}
+
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
@@ -146,6 +161,10 @@ function handleNewPostSubmit(evt) {
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 newPostForm.addEventListener("submit", handleNewPostSubmit);
+
+editProfileModal.addEventListener("mousedown", handleOverlayClick);
+newPostModal.addEventListener("mousedown", handleOverlayClick);
+previewModal.addEventListener("mousedown", handleOverlayClick);
 
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
