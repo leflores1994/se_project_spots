@@ -74,8 +74,8 @@ function getCardElement(data) {
     cardLikeBtnEl.classList.toggle("card__like-button_active");
   });
 
-  const cardDeleteBtnEL = cardElement.querySelector(".card__delete-button");
-  cardDeleteBtnEL.addEventListener("click", () => {
+  const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
+  cardDeleteBtnEl.addEventListener("click", () => {
     cardElement.remove();
   });
 
@@ -98,10 +98,12 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener(`keydown`, handleEscape);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener(`keydown`, handleEscape);
 }
 
 editProfileBtn.addEventListener("click", function () {
@@ -122,14 +124,11 @@ newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_is-opened");
-    if (openedModal) {
-      closeModal(openedModal);
-    }
+function handleEscape(evt) {
+  if (evt.key === `Escape`) {
+    closeModal(modal);
   }
-});
+}
 
 function handleOverlayClick(evt) {
   if (evt.target.classList.contains("modal")) {

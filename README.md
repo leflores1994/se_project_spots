@@ -17,7 +17,7 @@ Please see Link with video description attached: https://drive.google.com/file/d
 
 Sent to Git Hub
 
-- [Deployment Link] (https://leflores1994.github.io/se_project_spots/)
+- [Deployment Link](https://leflores1994.github.io/se_project_spots/)
 
 ### Overview
 

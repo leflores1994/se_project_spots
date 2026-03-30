@@ -49,13 +49,13 @@
 }
 
 .modal__close-btn:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .modal__close-btn_type_preview {
   top: 0;
   right: -52.5px;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .modal__close-btn_type_preview:hover {
@@ -146,7 +146,7 @@
 }
 
 .modal__submit-btn:hover {
-  opacity: 80%;
+  opacity: 0.8;
 }
 
 .modal__image-container {
