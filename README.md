@@ -2,10 +2,10 @@
 
 An image sharing site.
 
-## Description
+## Project Pitch Spots Stage 9
 
 Project consists of HTML webpage design as well as CSS styling for presentation. Buttons were created, but not currently functional.
-Please see Link with video description attached: https://drive.google.com/file/d/1Xxre7pWS3ugSzpsqeUe5yHUvx4ZiAcX9/view?usp=sharing
+Please see Link with video description attached: https://drive.google.com/file/d/1QqOTlus_4lHPuqBOrOSoa0CjvlYRF7aV/view?usp=drive_link
 
 ## Tech Stack
 
