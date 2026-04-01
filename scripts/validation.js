@@ -7,21 +7,21 @@ const settings = {
   errorClass: "modal__error",
 };
 
-const showInputError = (formEl, inputEl, config) => {
+const showInputError = (formEl, inputEl, errorMessage, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
-  errorMsgEl.textContent = config;
+  errorMsgEl.textContent = errorMessage;
   inputEl.classList.add(config.inputErrorClass);
 };
 
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
-  inputEl.classList.remove(config.errorClass);
+  inputEl.classList.remove(config.inputErrorClass);
 };
 
 function checkInputValidity(formEl, inputEl) {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, inputEl.validationMessage);
+    showInputError(formEl, inputEl, inputEl.validationMessage, settings);
   } else {
     hideInputError(formEl, inputEl, settings);
   }

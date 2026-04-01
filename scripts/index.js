@@ -126,7 +126,8 @@ newPostCloseBtn.addEventListener("click", function () {
 
 function handleEscape(evt) {
   if (evt.key === `Escape`) {
-    closeModal(modal);
+    closeModal(newPostModal);
+    closeModal(editProfileModal);
   }
 }
 
