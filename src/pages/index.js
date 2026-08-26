@@ -1,3 +1,7 @@
+import "./index.css";
+
+import { enableValidation, settings } from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Golden Gate bridge",
@@ -172,3 +176,5 @@ initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
 });
+
+enableValidation(settings);
