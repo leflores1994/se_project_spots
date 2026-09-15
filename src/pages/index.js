@@ -3,37 +3,6 @@ import "./index.css";
 import { enableValidation, settings } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 
-//const initialCards = [
-//{
-//name: "Golden Gate bridge",
-//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-//},
-//{
-//name: "Val Thorens",
-//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-//},
-//{
-//name: "Restaurant terrace",
-//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-//},
-//{
-//name: "An outdoor cafe",
-//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-//},
-//{
-//name: "A very long bridge, over the forest and through the trees",
-//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-//},
-//{
-//name: "Tunnel with morning light",
-//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-//},
-//{
-//name: "Mountain house",
-//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-//},
-//];
-
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -43,12 +12,17 @@ const api = new Api({
 });
 
 api
-  .getInitialCards()
-  .then((cards) => {
-    cards.forEach(function (item) {
-      const cardElement = getCardElement(item);
-      cardsList.append(cardElement);
+  .getAppInfo()
+  .then(([cards, userData]) => {
+    cards.forEach((item) => {
+      const cardEl = getCardElement(item);
+      cardsList.append(cardEl);
     });
+
+    return userData;
+
+    // - set the src of the avatar image
+    // - set the textcontent of both the text elements
   })
   .catch(console.error);
 
@@ -62,6 +36,12 @@ const editProfileNameInput = editProfileModal.querySelector(
 const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input",
 );
+
+const avatarModalBtn = document.querySelector(".profile__avatar-btn");
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
+const avatarForm = avatarModal.querySelector(".modal__form");
+const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
@@ -147,6 +127,16 @@ newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
 });
 
+avatarModalBtn.addEventListener("click", function () {
+  openModal(avatarModal);
+});
+
+avatarModalCloseBtn.addEventListener("click", function () {
+  closeModal(avatarModal);
+});
+
+avatarForm.addEventListener("submit", handleAvatarSubmit);
+
 function handleEscape(evt) {
   if (evt.key === `Escape`) {
     const openModal = document.querySelector(".modal_is-opened");
@@ -164,9 +154,31 @@ function handleOverlayClick(evt) {
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
-  profileNameEl.textContent = editProfileNameInput.value;
-  profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-  closeModal(editProfileModal);
+  api
+    .editUserInfo({
+      name: editProfileNameInput.value,
+      about: editProfileDescriptionInput.value,
+    })
+    .then((data) => {
+      profileNameEl.textContent = data.name;
+      profileDescriptionEl.textContent = data.about;
+      closeModal(editProfileModal);
+    })
+    .catch(console.error);
+}
+
+function handleAvatarSubmit(evt) {
+  evt.preventDefault();
+  api
+    .editUserAvatar({
+      avatar: avatarInput.value,
+    })
+    .then((data) => {
+      const profileAvatarEl = document.querySelector(".profile__avatar");
+      profileAvatarEl.src = data.avatar;
+      closeModal(avatarModal);
+    })
+    .catch(console.error);
 }
 
 function handleNewPostSubmit(evt) {
@@ -190,5 +202,6 @@ newPostForm.addEventListener("submit", handleNewPostSubmit);
 editProfileModal.addEventListener("mousedown", handleOverlayClick);
 newPostModal.addEventListener("mousedown", handleOverlayClick);
 previewModal.addEventListener("mousedown", handleOverlayClick);
+avatarModal.addEventListener("mousedown", handleOverlayClick);
 
 enableValidation(settings);
