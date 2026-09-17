@@ -121,7 +121,7 @@
             />
           </button>
           <h2 class="modal__title">New post</h2>
-          <form class="modal__form" novalidate>
+          <form class="modal__form" id="new-post-modal">
             <label for="card-image-input" class="modal__label"
               >Image link
               <input
@@ -170,30 +170,48 @@
         </div>
       </div>
     </div>
-/////////////////
-     <div class="modal" id="avatar-modal">
-        <div class="modal__container">
-          <button type="button" class="modal__close-btn">
-            <img
-              src="<%= require('./images/close-btn.svg') %>"
-              alt="close button"
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close-btn">
+          <img
+            src="<%= require('./images/close-btn.svg') %>"
+            alt="close button"
+          />
+        </button>
+        <h2 class="modal__title">Edit profile avatar</h2>
+        <form class="modal__form" id="edit-avatar-form">
+          <label for="profile-avatar-input" class="modal__label"
+            >Profile Picture
+            <input
+              id="profile-avatar-input"
+              class="modal__input"
+              name="avatar"
+              placeholder="Paste the link to an image"
+              required
             />
-          </button>
-          <h2 class="modal__title">Edit profile avatar</h2>
-          <form class="modal__form" novalidate>
-            <label for="profile-avatar-input" class="modal__label"
-              >Avatar
-              <input
-                id="profile-avatar-input"
-                class="modal__input"
-                name="avatar"
-                placeholder="avatar goes here"
-
-                required
-              />
-              <span id="profile-avatar-input-error" class="modal__error"></span>
-            </label>
-            <button type="submit" class="modal__submit-btn">Save</button>
-          </form>
+            <span id="profile-avatar-input-error" class="modal__error"></span>
+          </label>
+          <button type="submit" class="modal__submit-btn">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- TODO - style the modal -->
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <button type="button" class="modal__close-btn">
+          <img
+            src="<%= require('./images/close-btn.svg') %>"
+            alt="close button"
+          />
+        </button>
+        <h3 class="modal__title">
+          Are you sure you want to delete this image?
+        </h3>
+        <form class="modal__form" id="delete-form">
+          <button type="submit" class="modal__submit-btn">Delete</button>
+          <button type="button" class="modal__submit-btn">Cancel</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
