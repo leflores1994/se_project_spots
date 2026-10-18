@@ -38,6 +38,10 @@
   margin: 0;
   max-width: 630px;
   max-height: 172px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 8px;
   background-color: #fff;
   padding: 32px 20px;
@@ -112,12 +116,8 @@
 }
 
 .modal__form-delete {
-  padding: 88px 149px 32px;
+  padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  gap: 20px;
 }
 
 .modal__label {

@@ -48,7 +48,7 @@ const deleteForm = deleteModal.querySelector(".modal__form-delete");
 const deleteModalCloseBtn = deleteModal.querySelector(
   ".modal__close-btn-delete",
 );
-const cancelDeleteBtn = deleteModal.querySelector(".modal__form-delete");
+const cancelDeleteBtn = deleteModal.querySelector(".modal__cancel-btn");
 
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
