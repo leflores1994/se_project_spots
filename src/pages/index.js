@@ -1,6 +1,10 @@
 import "./index.css";
 
-import { enableValidation, settings } from "../scripts/validation.js";
+import {
+  enableValidation,
+  disableButton,
+  settings,
+} from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
 
@@ -19,10 +23,9 @@ api
       const cardEl = getCardElement(item);
       cardsList.append(cardEl);
     });
-
-    // - set the src of the avatar image
-
-    // - set the textcontent of both the text elements
+    profileAvatarEl.src = userData.avatar;
+    profileNameEl.textContent = userData.name;
+    profileDescriptionEl.textContent = userData.about;
   })
   .catch(console.error);
 
@@ -42,6 +45,9 @@ const avatarModal = document.querySelector("#avatar-modal");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarForm = avatarModal.querySelector(".modal__form");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
+const profileAvatarEl = document.querySelector(".profile__avatar");
+const profileNameEl = document.querySelector(".profile__name");
+const profileDescriptionEl = document.querySelector(".profile__description");
 
 const deleteModal = document.querySelector("#delete-modal");
 const deleteForm = deleteModal.querySelector(".modal__form-delete");
@@ -148,9 +154,6 @@ previewModalCloseBtn.addEventListener("click", function () {
   closeModal(previewModal);
 });
 
-const profileNameEl = document.querySelector(".profile__name");
-const profileDescriptionEl = document.querySelector(".profile__description");
-
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
   document.addEventListener(`keydown`, handleEscape);
@@ -246,6 +249,9 @@ function handleAvatarSubmit(evt) {
     .then((data) => {
       const profileAvatarEl = document.querySelector(".profile__avatar");
       profileAvatarEl.src = data.avatar;
+      evt.target.reset();
+
+      disableButton(submitBtn, settings);
       closeModal(avatarModal);
     })
     .catch(console.error)
@@ -269,6 +275,7 @@ function handleNewPostSubmit(evt) {
       const cardElement = getCardElement(data);
       cardsList.prepend(cardElement);
       evt.target.reset();
+      disableButton(submitBtn, settings);
       closeModal(newPostModal);
     })
     .catch(console.error)
