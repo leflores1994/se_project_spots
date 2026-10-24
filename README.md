@@ -2,10 +2,11 @@
 
 An image sharing site.
 
-## Project Pitch Spots Stage 9
+## Project Pitch Spots final stage
 
-Project consists of HTML webpage design as well as CSS styling for presentation. Buttons were created, but not currently functional.
-Please see Link with video description attached: https://drive.google.com/file/d/1QqOTlus_4lHPuqBOrOSoa0CjvlYRF7aV/view?usp=drive_link
+Project is now complete. All buttons are functional, added ability to save images and profile avatars with API.
+You can now save and upload images permanently to the site and even delete them from the DOM.
+Here is the link to my project pitch: https://www.loom.com/share/c3a72c4f9f0a4d2094175ec16155058d
 
 ## Tech Stack
 
